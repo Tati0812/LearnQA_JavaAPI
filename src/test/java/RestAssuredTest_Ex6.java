@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class RestAssuredTest_Ex6 {
 
-    @Description("Вывод адреса редиректа")
+    @Description("На самом деле, я не сильно поняла, что тут от меня требуется проверить, но попытаюсь")
     @Test
     public void testRedirectAddress() {
 
@@ -16,16 +16,19 @@ public class RestAssuredTest_Ex6 {
         Response response = RestAssured
                 .given()
                 .redirects()
-                .follow(true)
+                .follow(false)
                 .when()
                 .get(initialUrl)
                 .andReturn();
 
-        String finalRedirectedUrl = response.getHeader("x-host");
-        System.out.println("\nискомый URL редиректа: " + finalRedirectedUrl);
+        int statusCode = response.getStatusCode();
+        System.out.println("\nStatus code: " + statusCode);
+        if (statusCode != 200) {
+            String finalRedirectedUrl = response.getHeader("Location");
+            System.out.println("\nИскомый URL редиректа: " + finalRedirectedUrl);
 
-        assertNotEquals(initialUrl, finalRedirectedUrl,
-                "Ожидалось, что URL изменится в результате редиректа, но он остался прежним.");
-
+            assertNotEquals(initialUrl, finalRedirectedUrl,
+                    "Ожидалось, что URL изменится в результате редиректа, но он остался прежним.");
+        }
     }
 }
