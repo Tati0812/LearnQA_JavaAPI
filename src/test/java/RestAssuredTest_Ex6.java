@@ -18,7 +18,7 @@ public class RestAssuredTest_Ex6 {
                 .redirects()
                 .follow(true)
                 .when()
-                .get("https://playground.learnqa.ru/api/long_redirect")
+                .get(initialUrl)
                 .andReturn();
 
         String finalRedirectedUrl = response.getHeader("x-host");
