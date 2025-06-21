@@ -15,7 +15,7 @@ public class Ex9 {
             "000000", "qwerty", "abc123", "password1", "iloveyou",
             "11111111", "dragon", "monkey", "123qwe", "dragon",
             "princess", "888888", "welcome", "7777777"
-    }; //Список паролей из Википедии
+    }; //Список паролей из Википедии за 2019г
 
     @Test
     public void testLoginAndPass(){
@@ -25,42 +25,42 @@ public class Ex9 {
         for (String password : PASSWORDS) {
 
             try {
-            // 1. Получаем cookie
-            Response response = RestAssured
-                    .given()
-                    .formParam("login", LOGIN)
-                    .formParam("password", password)
-                    .when()
-                    .post(initialUrl);
+                // 1. Получаем cookie
+                Response response = RestAssured
+                        .given()
+                        .formParam("login", LOGIN)
+                        .formParam("password", password)
+                        .when()
+                        .post(initialUrl);
 
-            response.then().statusCode(200);
-            Cookie authCookie = response.getDetailedCookies().asList().stream()
-                    .filter(cookie -> cookie.getName().equals("auth_cookie"))
-                    .findFirst()
-                    .orElseThrow(() -> new RuntimeException("Cookie 'auth_cookie' не найдена"));
+                response.then().statusCode(200);
+                Cookie authCookie = response.getDetailedCookies().asList().stream()
+                        .filter(cookie -> cookie.getName().equals("auth_cookie"))
+                        .findFirst()
+                        .orElseThrow(() -> new RuntimeException("Cookie 'auth_cookie' не найдена"));
 
-            //2. Проверяем cookie
-            response = RestAssured
-                    .given()
-                    .cookie(authCookie)
-                    .when()
-                    .get(cookieURL);
+                //2. Проверяем cookie
+                response = RestAssured
+                        .given()
+                        .cookie(authCookie)
+                        .when()
+                        .get(cookieURL);
 
-            response.then().statusCode(200);
-            String authStatus = response.asString();
+                response.then().statusCode(200);
+                String authStatus = response.asString();
 
-            if (!authStatus.equals("You are NOT authorized")) {
-                System.out.println("Верный пароль: " + password);
-                System.out.println("Сообщение: " + authStatus);
-                return; // Завершаем после нахождения верного пароля
+                if (!authStatus.equals("You are NOT authorized")) {
+                    System.out.println("Верный пароль: " + password);
+                    System.out.println("Сообщение: " + authStatus);
+                    return; // Завершаем после нахождения верного пароля
+                }
+
+            } catch (Exception e) {
+                System.err.println("Ошибка при проверке пароля '" + password + "': " + e.getMessage());
+                //Можно добавить обработку специфических ошибок, например, обработки ошибок 404
             }
-        } catch (Exception e) {
-            System.err.println("Ошибка при проверке пароля '" + password + "': " + e.getMessage());
-            //Можно добавить обработку специфических ошибок, например, обработки ошибок 404
         }
-
         System.out.println("Пароль не найден среди заданных.");
         }
 
     }
-}
