@@ -12,6 +12,4 @@ public class Ex10 {
         assertTrue(text.length() > 15, "Length is shorter or equal 15");
     }
 
-
-
 }
