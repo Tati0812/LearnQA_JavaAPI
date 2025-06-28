@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: Lessons.Lesson3_UserAuthTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.179 s <<< FAILURE! - in Lessons.Lesson3_UserAuthTest
+testAuthUser  Time elapsed: 0.179 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Response doesn't have 'x-crft-token' cookie ==> expected: <true> but was: <false>
+	at Lessons.Lesson3_UserAuthTest.testAuthUser(Lesson3_UserAuthTest.java:35)
+

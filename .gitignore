@@ -4,6 +4,7 @@
 allure-results/
 # Log file
 *.log
+*.idea/yatool.xml
 
 # BlueJ files
 *.ctxt
