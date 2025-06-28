@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class DataGenerator {
     public static String getRandomEmail(){
-        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new java.util.Date());
+        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss" + 1).format(new java.util.Date());
         return "learnqa" + timestamp + "@example.com";
     }
 
@@ -38,7 +38,7 @@ public class DataGenerator {
         return userData;
     }
 
-    public static String getLongString(int count) {
+    public static String getRandomNameByLenght(int count) {
         String CHAR_SET = "abcdefghijklmnopqrstuvwxyz";
 
         Random random = new Random();

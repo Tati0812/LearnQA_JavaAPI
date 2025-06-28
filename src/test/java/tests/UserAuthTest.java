@@ -43,9 +43,9 @@ public class UserAuthTest extends BaseTestCase {
         this.userIdOnAuth = this.getIntFromJson(responseGetAuth,"user_id");
     }
 
-    @Test
     @Description("This test successfully authorize user by email and password")
     @DisplayName("Test positive auth user")
+    @Test
     public void testAuthUser(){
 
         Response responseCheckAuth = apiCoreRequests
@@ -58,7 +58,6 @@ public class UserAuthTest extends BaseTestCase {
     @DisplayName("Test negative auth user")
     @ParameterizedTest
     @ValueSource(strings = {"cookie", "headers"})
-
     public void testNegativeAuthUser(String condition){
 
         RequestSpecification spec = RestAssured.given();
