@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class Ex7 {
 
-    @Description("На самом деле, я не сильно поняла, что тут от меня требуется проверить, но попытаюсь. Сага 2")
     @Test
     public void testRedirectAddress() {
 

@@ -3,9 +3,6 @@ import io.restassured.http.Cookie;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Ex9 {
 
     private static final String LOGIN = "super_admin";
