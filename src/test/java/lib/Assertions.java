@@ -25,12 +25,14 @@ public class Assertions {
 
     public static void assertResponseTextEquals(Response Response, String expectedAnswer){
         assertEquals(expectedAnswer, Response.asString(), "Response text is not as expected");
+    }
 
+    public static void assertResponseTextEquals(Response Response, String keyValue, String expectedAnswer){
+        assertEquals(expectedAnswer, Response.jsonPath().getString(keyValue), "Response text is not as expected");
     }
 
     public static void assertResponseCodeEquals(Response Response, int expectedStatusCode){
         assertEquals(expectedStatusCode, Response.statusCode(), "Response statusCode is not as expected");
-
     }
 
     public static void assertJsonHasField(Response Response, String expectedFieldName){
