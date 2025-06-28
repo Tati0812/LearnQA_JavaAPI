@@ -30,14 +30,15 @@ public class Lesson3_UserAuthTest {
         Headers headers = responseGetAuth.getHeaders();
         int userIdOnAuth = responseGetAuth.jsonPath().getInt("user_id");
 
+        System.out.println("POST = "+ responseGetAuth.asString());
         assertEquals(200, responseGetAuth.statusCode(), "Unexpected status code");
         assertTrue(cookies.containsKey("auth_sid"),"Response doesn't have 'auth_sid' cookie");
-        assertTrue(headers.hasHeaderWithName("x-crft-token"), "Response doesn't have 'x-crft-token' cookie" );
+        assertTrue(headers.hasHeaderWithName("x-csrf-token"), "Response doesn't have 'x-csrf-token' cookie" );
         assertTrue(responseGetAuth.jsonPath().getInt("userId") > 0 , "Response 'userId' should be greater then 0" );
 
         JsonPath responseCheckAuth = RestAssured
                 .given()
-                .header("x-crft-token", responseGetAuth.getHeader("x-crft-token"))
+                .header("x-csrf-token", responseGetAuth.getHeader("x-csrf-token"))
                 .cookie("auth_sid")
                 .get("https://playground.learnqa.ru/api/user/login")
                 .jsonPath();

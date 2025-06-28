@@ -10,6 +10,9 @@ import static org.hamcrest.Matchers.hasKey;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BaseTestCase {
+
+    protected final String BASE_URL = "https://playground.learnqa.ru/api_dev";
+
     @Step("Получаем headers из ответа по переданному ключу")
     protected String getHeader(Response Response, String name){
         Headers headers = Response.getHeaders();

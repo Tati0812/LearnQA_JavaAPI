@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: tests.UserDeleteTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.73 s - in tests.UserDeleteTest
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 6.548 s <<< FAILURE! - in tests.UserDeleteTest
+testTryDeleteByAnotherUser  Time elapsed: 2.715 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Response statusCode is not as expected ==> expected: <400> but was: <200>
+	at tests.UserDeleteTest.testTryDeleteByAnotherUser(UserDeleteTest.java:125)
+

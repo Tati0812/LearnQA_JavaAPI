@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: Lessons.Lesson3_UserAuthNegativeTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 1.947 s <<< FAILURE! - in Lessons.Lesson3_UserAuthNegativeTest
-testNegativeAuthUser{String}[2]  Time elapsed: 0.135 s  <<< ERROR!
+Tests run: 3, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 1.06 s <<< FAILURE! - in Lessons.Lesson3_UserAuthNegativeTest
+testNegativeAuthUser{String}[2]  Time elapsed: 0.18 s  <<< ERROR!
 java.lang.IllegalArgumentException: Header value cannot be null
 	at Lessons.Lesson3_UserAuthNegativeTest.testNegativeAuthUser(Lesson3_UserAuthNegativeTest.java:78)
 
-testAuthUser  Time elapsed: 0.212 s  <<< FAILURE!
+testAuthUser  Time elapsed: 0.131 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Response doesn't have 'x-crft-token' cookie ==> expected: <true> but was: <false>
 	at Lessons.Lesson3_UserAuthNegativeTest.testAuthUser(Lesson3_UserAuthNegativeTest.java:38)
 

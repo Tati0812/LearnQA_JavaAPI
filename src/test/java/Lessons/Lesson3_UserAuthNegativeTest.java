@@ -75,7 +75,7 @@ public class Lesson3_UserAuthNegativeTest {
         if(condition.equals("cookie")) {
             spec.cookie("auth_sid", cookies.get("auth_sid"));
         } else if (condition.equals("headers")) {
-            spec.header("x-crft-token", headers.get("x-crft-token"));
+            spec.header("x-csrf-token", headers.get("x-csrf-token"));
         } else {
             throw new IllegalArgumentException("Condition value is known:" + condition);
         }
